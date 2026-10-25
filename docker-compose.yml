@@ -1,0 +1,19 @@
+services:
+  jwalt:
+    build: .
+    container_name: jwalt
+    restart: unless-stopped
+    ports:
+      - "8084:8000"
+    volumes:
+      - jwalt_cache:/app/cache
+    networks:
+      - shared-net
+
+networks:
+  shared-net:
+    external: true
+
+volumes:
+  jwalt_cache:
+    external: true

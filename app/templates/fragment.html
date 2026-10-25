@@ -1,0 +1,14 @@
+{% if error %}
+<p style="margin:0; padding:12px 14px; border:1px solid #A8402E; border-left:4px solid #A8402E; border-radius:3px; background:#FBFAF6; font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:#21262B;">{{ error }}</p>
+{% elif images %}
+<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
+{% for img in images %}
+  <figure style="margin:0; border:1px solid #D9D4C6; border-radius:4px; overflow:hidden; background:#FBFAF6;">
+    <img src="{{ img.src }}" alt="" style="display:block; width:100%; height:auto;">
+    <figcaption style="padding:10px 14px; border-top:1px solid #D9D4C6; font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.5; color:#21262B;">{{ img.alt }}</figcaption>
+  </figure>
+{% endfor %}
+</div>
+{% else %}
+<p style="margin:0; font-family:'IBM Plex Sans',sans-serif; font-size:14px; color:#21262B;">Este artículo no tiene ninguna imagen con texto alternativo.</p>
+{% endif %}
